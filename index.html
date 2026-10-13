@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pine Creek Invasive Plants 2026</title>
+<meta name="description" content="Interactive map of the 2026 invasive plant survey of Pine Creek and its tributary meadows, Lassen National Forest.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,500;0,700;1,500&family=Public+Sans:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="app">
+  <aside class="panel" id="panel">
+    <header class="masthead">
+      <p class="eyebrow">Lassen National Forest · Eagle Lake Ranger District</p>
+      <h1>Pine Creek Invasive Plants <span>2026 survey</span></h1>
+      <p class="lede">Pine Creek is the primary spawning stream for Eagle Lake rainbow trout. Restoration in its meadows is reconnecting channels to their floodplains, and freshly wetted, disturbed ground is exactly where invasive grasses gain a foothold. This survey maps where those plants are now, so they can be treated before they spread.</p>
+    </header>
+
+    <section class="stats" aria-label="Survey at a glance">
+      <div class="stat"><b id="st-miles">–</b><span>miles walked</span></div>
+      <div class="stat"><b id="st-swath">–</b><span>acres within 25 m of a track</span></div>
+      <div class="stat"><b id="st-n">–</b><span>invasive occurrences</span></div>
+      <div class="stat"><b id="st-ac">–</b><span>acres mapped (gross)</span></div>
+    </section>
+
+    <section class="block">
+      <div class="block-head">
+        <h2>Invasive species</h2>
+        <button type="button" class="link-btn" id="toggle-all">Hide all</button>
+      </div>
+      <p class="hint">Tap a name for the species profile. Use the checkbox to show or hide it on the map.</p>
+      <div id="legend"></div>
+    </section>
+
+    <section class="block">
+      <h2>Survey coverage</h2>
+      <div class="layer-list" id="layers"></div>
+    </section>
+
+    <section class="block">
+      <h2>Rare and special-interest plants</h2>
+      <p class="hint">Botanists also documented sensitive native plants. Their locations are withheld from this map to protect the populations.</p>
+      <div id="rare"></div>
+    </section>
+
+    <section class="block about">
+      <h2>About the survey</h2>
+      <p>Wild Ginger Botanical Consulting surveyed un-surveyed reaches of Pine Creek and its tributaries above McCoy Flat (Little Harvey Valley, Squaw Valley, Antelope and Gordon Valley) in four field sessions between May 19 and June 30, 2026, under contract to Trout Unlimited, with data entered to Lassen National Forest standards. The work supports meadows already restored (Bogard/McKenzie, Logan Springs, Confluence) and those in design (Champs Flat, McCoy Flat), and informs a future Forest invasive plant treatment project.</p>
+      <h3>Reading the numbers</h3>
+      <ul>
+        <li><b>Gross acres</b> is the area of each mapped polygon. Many large polygons hold the plant at only a few percent canopy cover, so gross acres overstate the ground the plant actually occupies.</li>
+        <li><b>Net acres</b> multiplies polygon area by the percent of the polygon the surveyor recorded as infested.</li>
+        <li><b>Survey coverage</b> buffers every GPS track by 25 m on each side as an approximate search swath. The true search width varied with terrain and vegetation.</li>
+      </ul>
+      <p class="fine">Observations on private land near Stephens Camp are excluded from this map. Data: Wild Ginger Botanical Consulting, LLC (2026), NAD83 UTM 10N, reprojected to WGS84 for display. Draft for review, not for regulatory use.</p>
+    </section>
+  </aside>
+
+  <main class="map-wrap">
+    <div id="map" role="region" aria-label="Map of invasive plant occurrences"></div>
+    <div class="basemap-switch" id="basemaps" role="group" aria-label="Basemap"></div>
+  </main>
+</div>
+
+<div class="sheet" id="sheet" hidden>
+  <div class="sheet-card" role="dialog" aria-modal="false" aria-labelledby="sheet-title">
+    <button type="button" class="sheet-close" id="sheet-close" aria-label="Close species profile">×</button>
+    <div id="sheet-body"></div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script src="data/invasives.js"></script>
+<script src="data/survey_extent.js"></script>
+<script src="data/survey_swath.js"></script>
+<script src="data/tracks.js"></script>
+<script src="data/summary.js"></script>
+<script src="js/species.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

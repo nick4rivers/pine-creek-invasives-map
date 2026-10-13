@@ -1,0 +1,17 @@
+# Local QA outputs (include the Stephens Camp exclusion outline — keep out of the repo)
+qa/
+# Raw source data never goes in the repo
+*.gdb/
+*.gdb.zip
+*.shp
+*.shx
+*.dbf
+*.prj
+*.cpg
+*.sbn
+*.sbx
+*.gpkg
+*.qgz
+# OS / editor
+.DS_Store
+__pycache__/
