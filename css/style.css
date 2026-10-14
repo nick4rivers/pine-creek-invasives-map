@@ -36,11 +36,6 @@ body { background: var(--bg); color: var(--ink); font: 15px/1.5 var(--body); }
 
 .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); align-self: flex-start; padding-bottom: 4px; }
 .logo { display: block; height: 46px; width: auto; max-width: 100%; }
-.logo-dark { display: none; }
-@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .logo-light { display: none; } :root:not([data-theme="light"]) .logo-dark { display: block; } }
-:root[data-theme="dark"] .logo-light { display: none; }
-:root[data-theme="dark"] .logo-dark { display: block; }
-:root[data-theme="light"] .logo-dark { display: none; }
 .lede + .lede { margin-top: 10px; }
 .masthead { display: flex; flex-direction: column; gap: 10px; }
 .masthead > * { margin: 0; }
