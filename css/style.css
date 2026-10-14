@@ -8,7 +8,6 @@
   --accent: #2f5d4a;      /* lodgepole green */
   --accent-2: #b8742a;    /* dry-meadow ochre */
   --swath: #2f7f8f;
-  --logo-bg: transparent; --logo-pad: 0;
   --display: "Spectral", Georgia, "Times New Roman", serif;
   --body: "Public Sans", "Helvetica Neue", Arial, sans-serif;
   --mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
@@ -17,12 +16,12 @@
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     --bg: #151c18; --surface: #1c2520; --ink: #e6ebe4; --muted: #9eaca3; --rule: #2e3a33;
-    --accent: #8cc4a6; --accent-2: #e0a75e; --swath: #6cc3d1; --logo-bg: #f3f4ef; --logo-pad: 3px; color-scheme: dark;
+    --accent: #8cc4a6; --accent-2: #e0a75e; --swath: #6cc3d1; color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
   --bg: #151c18; --surface: #1c2520; --ink: #e6ebe4; --muted: #9eaca3; --rule: #2e3a33;
-  --accent: #8cc4a6; --accent-2: #e0a75e; --swath: #6cc3d1; --logo-bg: #f3f4ef; --logo-pad: 3px; color-scheme: dark;
+  --accent: #8cc4a6; --accent-2: #e0a75e; --swath: #6cc3d1; color-scheme: dark;
 }
 
 * { box-sizing: border-box; }
@@ -36,7 +35,12 @@ body { background: var(--bg); color: var(--ink); font: 15px/1.5 var(--body); }
 #map { position: absolute; inset: 0; background: #cfd6cc; }
 
 .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); align-self: flex-start; padding-bottom: 4px; }
-.logo { display: block; height: 54px; width: auto; flex: none; border-radius: 3px; background: var(--logo-bg); padding: var(--logo-pad); box-sizing: content-box; }
+.logo { display: block; height: 46px; width: auto; max-width: 100%; }
+.logo-dark { display: none; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .logo-light { display: none; } :root:not([data-theme="light"]) .logo-dark { display: block; } }
+:root[data-theme="dark"] .logo-light { display: none; }
+:root[data-theme="dark"] .logo-dark { display: block; }
+:root[data-theme="light"] .logo-dark { display: none; }
 .lede + .lede { margin-top: 10px; }
 .masthead { display: flex; flex-direction: column; gap: 10px; }
 .masthead > * { margin: 0; }
